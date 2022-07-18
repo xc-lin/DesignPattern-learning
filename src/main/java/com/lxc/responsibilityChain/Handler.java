@@ -21,4 +21,15 @@ public abstract class Handler {
     // 处理审批请求的方法，得到一个请求，处理事子类完成，因此该方法做成抽象
     public abstract void processRequest(PurchaseRequest purchaseRequest);
 
+    public void process(PurchaseRequest purchaseRequest) {
+        if (support(purchaseRequest)) {
+            processRequest(purchaseRequest);
+        }else {
+            handler.process(purchaseRequest);
+        }
+    }
+
+
+    public abstract boolean support(PurchaseRequest purchaseRequest);
+
 }

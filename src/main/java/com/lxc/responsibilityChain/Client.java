@@ -6,7 +6,7 @@ package com.lxc.responsibilityChain;
  */
 public class Client {
     public static void main(String[] args) {
-        PurchaseRequest purchaseRequest = new PurchaseRequest(1, 31000, 1);
+        PurchaseRequest purchaseRequest = new PurchaseRequest(1, 200, 1);
         DepartmentHandler departmentHandler = new DepartmentHandler("张主任");
         CollegeHandler collegeHandler = new CollegeHandler("李院长");
         ViceSchoolMasterHandler viceSchoolMasterHandler = new ViceSchoolMasterHandler("王副校长");
@@ -18,6 +18,6 @@ public class Client {
         viceSchoolMasterHandler.setHandler(schoolMasterHandler);
         schoolMasterHandler.setHandler(departmentHandler);
 
-        departmentHandler.processRequest(purchaseRequest);
+        departmentHandler.process(purchaseRequest);
     }
 }

@@ -12,10 +12,11 @@ public class CollegeHandler extends Handler {
 
     @Override
     public void processRequest(PurchaseRequest purchaseRequest) {
-        if (purchaseRequest.getPrice() > 5000 && purchaseRequest.getPrice() <= 10000) {
-            System.out.println("请求id=" + purchaseRequest.getId() + "被" + this.name + "处理");
-        } else {
-            handler.processRequest(purchaseRequest);
-        }
+        System.out.println("请求id=" + purchaseRequest.getId() + "被" + this.name + "处理");
+    }
+
+    @Override
+    public boolean support(PurchaseRequest purchaseRequest) {
+        return purchaseRequest.getPrice() > 5000 && purchaseRequest.getPrice() <= 10000;
     }
 }
